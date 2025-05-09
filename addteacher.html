@@ -1,0 +1,15 @@
+<?php include "db.php"; ?>
+<form method="POST">
+  <input type="text" name="name" placeholder="Teacher Name"><br>
+  <input type="text" name="subject" placeholder="Subject"><br>
+  <button type="submit">Add Teacher</button>
+</form>
+
+<?php
+if ($_POST) {
+    $name = $_POST['name'];
+    $subject = $_POST['subject'];
+    mysqli_query($conn, "INSERT INTO teachers (name, subject) VALUES ('$name', '$subject')");
+    echo "Teacher added successfully!";
+}
+?>
